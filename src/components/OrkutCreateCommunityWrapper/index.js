@@ -12,16 +12,32 @@ function OrkutCreateCommunityWrapper(p){
                 e.preventDefault();
                 const dadosDoForm = new FormData(e.target);
 
-                console.log('titulo: ', dadosDoForm.get('title'));
-                console.log('imagem: ', dadosDoForm.get('image'));
+                //console.log('titulo: ', dadosDoForm.get('title'));
+                //console.log('imagem: ', dadosDoForm.get('image'));
 
                 const comunidade = {
-                  id: new Date().toISOString(),
                   title: dadosDoForm.get('title'),
-                  imageUrl: `https://picsum.photos/300/300?`+ dadosDoForm.get('image'),
+                  imageurl: `https://picsum.photos/300/300?`+ dadosDoForm.get('image'),
+                  communityurl: dadosDoForm.get('link'),
                 }
-                const comunidadesAtualizadas = [...p.baseCommunity, comunidade];
-                p.setCommunity(comunidadesAtualizadas)
+
+                fetch('/api/community/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(comunidade)
+
+                }).then(async (response)=>{
+                     const dados = await response.json();
+                     //console.log("dados aqui", dados)
+                     const comunidade = dados.registed;
+                     const comunidadesAtualizadas = [...p.baseCommunity, comunidade];
+                     p.setCommunity(comunidadesAtualizadas)
+                })   
+
+
+                
             }}>
               <div>
                 <input
@@ -44,6 +60,7 @@ function OrkutCreateCommunityWrapper(p){
                   placeholder="Coloque uma Link da sua comunidade na web"
                   name="link"
                   aria-label="Coloque uma Link da sua comunidade na web"
+                  type="text"
                 />
               </div>
 
