@@ -9,11 +9,11 @@ Projeto: (https://andrenas-alurakut.vercel.app/)
 
 ### TODO
 
-Criar variaveis de ambient na vercel para armazenar as keys do datocms
+Criar variaveis de ambient na vercel para armazenar as keys do datocms [X]
 
-login via github -> armazenar cookie pegando id(somente se estiver logado)
+login via github -> armazenar cookie pegando id(somente se estiver logado) [ ]
 
-Rotas dinamicas: uma pagina para cada usuario, mas so poderá acessar se estiver autenticado!
+Rotas dinamicas: uma pagina para cada usuario, mas so poderá acessar se estiver autenticado! [ ]
 
-DatoCms postagem de recados no alurakut
+DatoCms postagem de recados no alurakut [ ]
 
