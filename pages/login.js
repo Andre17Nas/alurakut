@@ -22,6 +22,7 @@ export default function LoginScreen() {
         <section className="formArea">
           <form className="box" onSubmit={(e)=>{
               e.preventDefault();
+              
               console.log(user)
               fetch('https://alurakut.vercel.app/api/login', {
                 method: 'POST',

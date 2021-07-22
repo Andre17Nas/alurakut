@@ -1,12 +1,13 @@
+require('dotenv').config()
 import { SiteClient } from 'datocms-client'
 
 export default function receiveRequest(req, res){
     if(req.method === 'POST'){
-        const TOKEN = '60d1b9c13679d73ba2f38719b58590'
+        const TOKEN = process.env.DATOCMS_TOKEN
         const client = new SiteClient(TOKEN)
 
         const registerCreated = client.items.create({
-            itemType: "968452",
+            itemType: process.env.COMMUNITY_CREATE_ID,
             ...req.body,
         })
 

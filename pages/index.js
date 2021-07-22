@@ -242,15 +242,3 @@ export async function getServerSideProps(context){
   }
 }
 
-
-export async function getStaticPaths(){
-  return {
-    paths: [
-      {
-        params: {
-          id: 'andrenas'
-        }
-      }
-    ]
-  }
-}

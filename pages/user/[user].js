@@ -11,3 +11,20 @@ export default function UserPage(){
         <h1>bem vindo: { user }</h1>
     )
 }
+
+export async function getStaticProps({params}){
+
+}
+
+export async function getStaticPaths(){
+    return {
+      paths: [
+        {
+          params: {
+            id: 'andrenas'
+          }
+        }
+      ],
+      fallback: false
+    }
+  }
